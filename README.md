@@ -15,12 +15,17 @@ python evals.py
 
 ## Run with a real model
 
-Set a LangChain model identifier and provider key, then enable the LLM path:
+Copy `.env` and set your model identifier, provider key, and `USE_LLM=1`:
 
 ```bash
-export MODEL_ID="openai:gpt-4.1-mini"
-export OPENAI_API_KEY="your-key"
-export USE_LLM=1
+MODEL_ID=openai:gpt-4.1-mini
+OPENAI_API_KEY=your-key
+USE_LLM=1
+```
+
+Then run:
+
+```bash
 python agent.py
 ```
 

@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import json
-import os
+from pathlib import Path
 from typing import Any
+
+import config
 
 from tools import check_order_status, log_refund_decision, lookup_refund_policy
 
@@ -80,7 +82,7 @@ def build_langchain_agent(model_id: str | None = None):
     from langchain.agents import create_agent
 
     return create_agent(
-        model=model_id or os.environ["MODEL_ID"],
+        model=model_id or config.MODEL_ID,
         tools=[check_order_status, lookup_refund_policy, log_refund_decision],
         system_prompt=SYSTEM_PROMPT,
     )
@@ -88,7 +90,7 @@ def build_langchain_agent(model_id: str | None = None):
 
 def run_refund_assistant(case: dict[str, Any], use_llm: bool | None = None) -> Any:
     """Run the assistant. Default is deterministic so evals work without keys."""
-    should_use_llm = use_llm if use_llm is not None else os.getenv("USE_LLM") == "1"
+    should_use_llm = use_llm if use_llm is not None else config.USE_LLM
     if not should_use_llm:
         return deterministic_refund_assistant(case)
 

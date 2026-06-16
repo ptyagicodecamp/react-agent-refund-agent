@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-import os
+import config
 from pathlib import Path
 from typing import Any
 
@@ -65,5 +65,5 @@ def run_evals(use_llm: bool = False) -> dict[str, Any]:
 
 
 if __name__ == "__main__":
-    report = run_evals(use_llm=os.getenv("USE_LLM") == "1")
+    report = run_evals(use_llm=config.USE_LLM)
     print(json.dumps(report, indent=2))

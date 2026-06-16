@@ -1,3 +1,4 @@
 # Verify versions against official LangChain docs before production use.
 langchain
 langchain-openai
+python-dotenv
