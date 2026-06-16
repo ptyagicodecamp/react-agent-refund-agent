@@ -1,0 +1,42 @@
+[
+  {
+    "id": "damaged_within_window",
+    "order_id": "R-1001",
+    "reason": "damaged",
+    "message": "My item arrived damaged. Can I get a refund?",
+    "expected_decision": "refund",
+    "expected_policy_code": "DELIVERED_30_DAY_DEFECT"
+  },
+  {
+    "id": "late_change_of_mind",
+    "order_id": "R-1002",
+    "reason": "changed mind",
+    "message": "I changed my mind and want a refund.",
+    "expected_decision": "deny",
+    "expected_policy_code": "OUTSIDE_RETURN_WINDOW"
+  },
+  {
+    "id": "lost_shipment",
+    "order_id": "R-1003",
+    "reason": "not received",
+    "message": "The tracking has not moved and I never received the order.",
+    "expected_decision": "refund",
+    "expected_policy_code": "SHIPMENT_FAILURE"
+  },
+  {
+    "id": "open_chargeback",
+    "order_id": "R-1004",
+    "reason": "wrong item",
+    "message": "I received the wrong item and also disputed the charge.",
+    "expected_decision": "escalate",
+    "expected_policy_code": "CHARGEBACK_OPEN"
+  },
+  {
+    "id": "missing_order",
+    "order_id": "R-9999",
+    "reason": "damaged",
+    "message": "I need a refund but cannot find my confirmation.",
+    "expected_decision": "escalate",
+    "expected_policy_code": "ORDER_NOT_FOUND"
+  }
+]
